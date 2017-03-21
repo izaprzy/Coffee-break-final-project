@@ -1,0 +1,37 @@
+$font-stack:  'Montserrat', sans-serif;
+
+// font and background colors //
+$colors: (
+  primary: #ed028d,
+  grey: #c1bcb0,
+  dark-grey: #33342E,
+  light: #F5F5F5,
+  dark: #262626
+);
+
+//space between columns
+$gutter: 30px;
+
+
+//breakpoints for grid
+$desktop-breakpoint: 640px;
+
+//placeholder that clears floats
+%clearfix {
+  &:before, &:after{
+    content: "";
+    display: table;
+    clear: both
+  }
+}
+
+%buttons {
+  width: auto;
+  background: none;
+  color: #ed028d;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ed028d;
+  padding: 5px;
+  font-weight: 500;
+}

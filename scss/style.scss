@@ -1,0 +1,113 @@
+@import "modules/reset";
+@import "modules/_variables";
+@import "modules/mixins";
+
+@import "partials/main-Page";
+@import "partials/flickr-Api";
+@import "partials/parralax-scrolling";
+
+
+body {
+  font-family: $font-stack;
+  color: map_get($colors, dark);
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+//creating grid with 12 columns
+// main container
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  //background-color: #0000AA;
+
+
+  .row {
+    //we use this placeholder to clear the floats
+    @extend %clearfix;
+
+    ////we set margin -$gutter to clear space at the begging and the end of the row
+    //margin-right: -$gutter;
+    //margin-left: -$gutter;
+
+    //We find all col-* class'es and set them width 100% - Mobile first!
+    [class*='col-'] {
+      width: 100%;
+      float: left;
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+
+    //We set col- width for bigger screans
+    @media screen and (min-width: $desktop-breakpoint) {
+      @include grid(12);
+      margin-bottom: 10px;
+    }
+  }
+}
+
+section#main-background {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  background-image: url("../_src/main-background.jpg");
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.8;
+  background-repeat: no-repeat;
+
+}
+
+header {
+  margin: 1rem 0;
+  img.logo {
+  }
+  div.menu-overlay {
+    display: inline-block;
+    float: right;
+    div.menu-overlay-content {
+      width: 30px;
+      height: 30px;
+      p.menu-overlay-line {
+        height: 4px;
+        background-color: map_get($colors, primary);
+      }
+      p.menu-overlay-line.two {
+        margin: 4px 0;
+      }
+    }
+  }
+}
+
+
+section.row.links {
+  position: relative;
+  a {
+    text-decoration: none;
+    position: absolute;
+    margin-bottom: 10px;
+    button {
+      @extend %buttons;
+    }
+    p {
+      color: map_get($colors, dark);
+    }
+    &.flickr-link {
+      top: 10vh;
+      left: 28vh;
+
+    }
+    &.parralax-link {
+      top: 20vh;
+      left: 28vh;
+    }
+  }
+
+}

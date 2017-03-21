@@ -1,0 +1,10 @@
+//This mixin generate $column-number columns for grid
+@mixin grid($column-number) {
+    @for $i from 1 through $column-number {
+        .col-#{$i} {
+        //we determine width of column
+        width: 100% / $column-number * $i;
+        }
+    }
+}
+
