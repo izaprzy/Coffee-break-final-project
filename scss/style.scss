@@ -17,6 +17,30 @@ body {
   display: none;
 }
 
+.transform-line1 {
+  //transform: translateY(8px) rotate(45deg);
+  -webkit-transform: translateY(8px)  rotate(45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translateY(8px)  rotate(45deg); /* IE 9 */
+  transform: translateY(8px)  rotate(45deg);
+}
+
+.transform-line3 {
+  -webkit-transform: translateY(-8px)  rotate(-45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translateY(-8px)  rotate(-45deg); /* IE 9 */
+  transform: translateY(-8px)  rotate(-45deg);
+}
+
+.navigationAnimate {
+  -webkit-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  -moz-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  @-webkit-keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}@keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}
+}
+
+.redCloseButton {
+  color: map_get($colors, primary);
+}
+
 
 //creating grid with 12 columns
 // main container
@@ -73,17 +97,49 @@ header {
   img.logo {
   }
   div.menu-overlay {
-    display: inline-block;
-    float: right;
-    div.menu-overlay-content {
-      width: 30px;
-      height: 30px;
-      p.menu-overlay-line {
-        height: 4px;
-        background-color: map_get($colors, dark);
+    a.menu-overlay {
+      display: inline-block;
+      //float: right;
+      position: absolute;
+      top: 16px;
+      right: $gutter;
+      div.menu-overlay-content {
+        width: 30px;
+        height: 30px;
+
+        p.menu-overlay-line.one {
+          top: 0;
+        }
+        p.menu-overlay-line.two {
+          top: 6px;
+        }
+        p.menu-overlay-line.three {
+          top: 12px;
+        }
+        p.menu-overlay-line {
+          height: 4px;
+          background-color: map_get($colors, dark);
+          position: relative;
+          transition-duration: 0.5s;
+        }
       }
-      p.menu-overlay-line.two {
-        margin: 4px 0;
+    }
+  }
+  nav.navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: map_get($colors,dark);
+    width: 100vw;
+    opacity: 0.5;
+    height: 50vh;
+    transition-duration: 0.9s;
+    ul {
+      text-align: center;
+      li {
+        color: map_get($colors, light);
+        font-size: 2em;
+        margin: 6vh;
       }
     }
   }
