@@ -2,11 +2,11 @@ $font-stack:  'Montserrat', sans-serif;
 
 // font and background colors //
 $colors: (
-  primary: #ed028d,
+  primary: #cf0d10,
   grey: #c1bcb0,
   dark-grey: #33342E,
   light: #F5F5F5,
-  dark: #262626
+  dark: #000
 );
 
 //space between columns
@@ -14,7 +14,7 @@ $gutter: 30px;
 
 
 //breakpoints for grid
-$desktop-breakpoint: 640px;
+$desktop-breakpoint: 540px;
 
 //placeholder that clears floats
 %clearfix {
@@ -25,13 +25,14 @@ $desktop-breakpoint: 640px;
   }
 }
 
+//button on the main page
 %buttons {
   width: auto;
   background: none;
-  color: #ed028d;
+  color: map_get($colors, dark);
   font-size: 1em;
   border-radius: 5px;
-  border: 1px solid #ed028d;
+  border: 2px solid map_get($colors, primary);
   padding: 5px;
   font-weight: 500;
 }
