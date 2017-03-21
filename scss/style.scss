@@ -19,9 +19,9 @@ body {
 
 .transform-line1 {
   //transform: translateY(8px) rotate(45deg);
-  -webkit-transform: translateY(8px)  rotate(45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-  -ms-transform: translateY(8px)  rotate(45deg); /* IE 9 */
-  transform: translateY(8px)  rotate(45deg);
+  -webkit-transform: translateY(8px) rotate(45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translateY(8px) rotate(45deg); /* IE 9 */
+  transform:  translateY(8px) rotate(45deg);
 }
 
 .transform-line3 {
@@ -30,17 +30,20 @@ body {
   transform: translateY(-8px)  rotate(-45deg);
 }
 
-.navigationAnimate {
+.navigationOpen {
   -webkit-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   -moz-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   @-webkit-keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}@keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}
 }
 
-.redCloseButton {
-  color: map_get($colors, primary);
-}
 
+//.navigationClose {
+//  -webkit-animation: slide-out-bck-tr 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+//  -moz-animation: slide-out-bck-tr 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+//  animation: slide-out-bck-tr 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+//  @-webkit-keyframes slide-out-bck-tr{0%{-webkit-transform:translateZ(0) translateY(0) translateX(0);transform:translateZ(0) translateY(0) translateX(0);opacity:1}100%{-webkit-transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);opacity:0}}@keyframes slide-out-bck-tr{0%{-webkit-transform:translateZ(0) translateY(0) translateX(0);transform:translateZ(0) translateY(0) translateX(0);opacity:1}100%{-webkit-transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);opacity:0}}
+//}
 
 //creating grid with 12 columns
 // main container
@@ -103,6 +106,7 @@ header {
       position: absolute;
       top: 16px;
       right: $gutter;
+      z-index: 3;
       div.menu-overlay-content {
         width: 30px;
         height: 30px;
@@ -120,16 +124,20 @@ header {
           height: 4px;
           background-color: map_get($colors, dark);
           position: relative;
-          transition-duration: 0.5s;
+          transition: 0.5s;
+          &.redCloseButton  {
+            background-color: map_get($colors, primary);
+          }
         }
+
       }
     }
   }
+
   nav.navigation {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: map_get($colors,dark);
     width: 100vw;
     opacity: 0.5;
     height: 50vh;
