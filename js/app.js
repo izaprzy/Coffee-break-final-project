@@ -39,7 +39,6 @@ $(function () {
 
     //flickr-Api
 
-
     var div =$('section.photo');
     //the url below was generates by flickr api
     var urlPage1 = "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=f7b675897915d732843be51dc236ab7c&group_id=564487%40N23&page=1&format=json&nojsoncallback=1&auth_token=72157679998988820-d935810cdcdc0511&api_sig=2bb41404b537f6b1735dab88209839f8";
@@ -66,6 +65,8 @@ $(function () {
             var url = photo.url_o;
             var $img = $('<img>').attr('src', url);
             var $addPhoto = $('<div>', {'class': 'bottomSpace'}).append($img);
+
+
             if (index < 34) {
                 console.log(url);
                 $columnLeft.append($addPhoto);
@@ -74,6 +75,16 @@ $(function () {
             } else {
                 $columnRight.append($addPhoto);
             }
+
+            // for (var index = 0; index < 100; index+=3) {
+            //     $columnLeft.append($addPhoto);
+            // }
+            // for ( var index = 1; index < 100; index+=3 ) {
+            //     $columnMiddle.append($addPhoto);
+            // }
+            // for ( var index = 2; index < 100; index+=3 ) {
+            //     $columnRight.append($addPhoto);
+            // }
 
 
         });
@@ -86,6 +97,7 @@ $(function () {
         url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=3f0cf76cdb758cb809a3fc847d802e1a&group_id=564487%40N23&extras=path_alias%2C+url_sq%2C+url_t%2C+url_s%2C+url_q%2C+url_m%2C+url_n%2C+url_z%2C+url_c%2C+url_l%2C+url_o&per_page=&page=1&format=json&nojsoncallback=1&auth_token=72157681616789316-e4c70c5467721b49&api_sig=1e4496cdf9554c16064a9274ff2efc69"
     }).done(function (response) {
         console.log(response.photos.photo);
+
         insertPhotoWithQuote(response.photos.photo);
 
     }).fail(function (error) {

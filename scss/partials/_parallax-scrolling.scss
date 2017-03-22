@@ -17,7 +17,7 @@ section.parallax {
     }
     .parallax-layer-base { // we determine the scrolling speed of a parallax element by translating it along the Z axis (moving it farther away, or closer to the viewport)
       transform: translateZ(0);
-      font-size: 3rem;
+      font-size: 2rem;
       color: white;
       top: 50%;
       text-align: center;
