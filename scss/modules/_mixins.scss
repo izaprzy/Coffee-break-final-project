@@ -8,3 +8,11 @@
     }
 }
 
+
+
+//for parallax background base
+@mixin photoBase($img) {
+    background-image: $img;
+    background-size: cover;
+    background-position: center center;
+}

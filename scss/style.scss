@@ -4,7 +4,7 @@
 
 @import "partials/main-Page";
 @import "partials/flickr-Api";
-@import "partials/parralax-scrolling";
+@import "partials/parallax-scrolling";
 
 
 body {
@@ -17,33 +17,7 @@ body {
   display: none;
 }
 
-.transform-line1 {
-  //transform: translateY(8px) rotate(45deg);
-  -webkit-transform: translateY(8px) rotate(45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-  -ms-transform: translateY(8px) rotate(45deg); /* IE 9 */
-  transform:  translateY(8px) rotate(45deg);
-}
 
-.transform-line3 {
-  -webkit-transform: translateY(-8px)  rotate(-45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-  -ms-transform: translateY(-8px)  rotate(-45deg); /* IE 9 */
-  transform: translateY(-8px)  rotate(-45deg);
-}
-
-.navigationOpen {
-  -webkit-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  -moz-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  @-webkit-keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}@keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}
-}
-
-
-.navigationClose {
-  -webkit-animation: slide-out-bck-tr 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  -moz-animation: slide-out-bck-tr 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: slide-out-bck-tr 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  @-webkit-keyframes slide-out-bck-tr{0%{-webkit-transform:translateZ(0) translateY(0) translateX(0);transform:translateZ(0) translateY(0) translateX(0);opacity:1}100%{-webkit-transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);opacity:0}}@keyframes slide-out-bck-tr{0%{-webkit-transform:translateZ(0) translateY(0) translateX(0);transform:translateZ(0) translateY(0) translateX(0);opacity:1}100%{-webkit-transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);transform:translateZ(-1100px) translateY(-1000px) translateX(1000px);opacity:0}}
-}
 
 //creating grid with 12 columns
 // main container
@@ -74,142 +48,6 @@ body {
     @media screen and (min-width: $desktop-breakpoint) {
       @include grid(12);
       margin-bottom: 10px;
-    }
-  }
-}
-
-// Main background with watermelon-bicycle
-section#main-background {
-  position: absolute;
-  z-index: -1;
-  width: 100vw;
-  height: auto;
-  min-height: 100vh;
-  background-image: url("../_src/watermelon.jpeg");
-  background-size: cover;
-  background-position: center center;
-  opacity: 0.8;
-  background-repeat: no-repeat;
-
-}
-
-
-// header with logo and menu-overlay
-header {
-  margin: 1rem 0;
-  img.logo {
-  }
-  div.menu-overlay {
-    a.menu-overlay {
-      display: inline-block;
-      //float: right;
-      position: absolute;
-      top: 16px;
-      right: $gutter;
-      z-index: 3;
-      div.menu-overlay-content {
-        width: 30px;
-        height: 30px;
-
-        p.menu-overlay-line.one {
-          top: 0;
-        }
-        p.menu-overlay-line.two {
-          top: 6px;
-        }
-        p.menu-overlay-line.three {
-          top: 12px;
-        }
-        p.menu-overlay-line {
-          height: 4px;
-          background-color: map_get($colors, dark);
-          position: relative;
-          transition: 0.5s;
-          &.redCloseButton  {
-            background-color: map_get($colors, primary);
-          }
-        }
-
-      }
-    }
-  }
-
-  nav.navigation {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    opacity: 0.5;
-    height: 50vh;
-    transition-duration: 0.9s;
-    ul {
-      text-align: center;
-      li {
-        color: map_get($colors, light);
-        font-size: 2em;
-        margin: 6vh;
-      }
-    }
-  }
-}
-
-// links to flickr and parralax
-section.row.links {
-  position: relative;
-  a {
-    display: inline-block;
-    text-decoration: none;
-    position: absolute;
-    margin-bottom: 10px;
-    -webkit-animation: vibrate-2 2s linear infinite alternate ;
-    -moz-animation: vibrate-2 2s linear infinite alternate ;
-    animation: vibrate-2 2s linear infinite alternate ;
-    @-webkit-keyframes vibrate-2{0%{-webkit-transform:translate(0);transform:translate(0)}20%{-webkit-transform:translate(2px,-2px);transform:translate(2px,-2px)}40%{-webkit-transform:translate(2px,2px);transform:translate(2px,2px)}60%{-webkit-transform:translate(-2px,2px);transform:translate(-2px,2px)}80%{-webkit-transform:translate(-2px,-2px);transform:translate(-2px,-2px)}100%{-webkit-transform:translate(0);transform:translate(0)}}@keyframes vibrate-2{0%{-webkit-transform:translate(0);transform:translate(0)}20%{-webkit-transform:translate(2px,-2px);transform:translate(2px,-2px)}40%{-webkit-transform:translate(2px,2px);transform:translate(2px,2px)}60%{-webkit-transform:translate(-2px,2px);transform:translate(-2px,2px)}80%{-webkit-transform:translate(-2px,-2px);transform:translate(-2px,-2px)}100%{-webkit-transform:translate(0);transform:translate(0)}}
-    &:hover {
-      button {
-        background-color: map_get($colors, primary);
-        color: whitesmoke;
-        font-weight: 200;
-      }
-      p {
-        color: map_get($colors, primary);
-      }
-    }
-    &.flickr-link {
-      top: 7vh;
-      right: 21px;
-    }
-    &.parralax-link {
-      top: 18vh;
-      right: 102px;
-    }
-    p {
-      color: map_get($colors, dark);
-      font-size: 1.25em;
-      margin-bottom: 3px;
-    }
-    button {
-      @extend %buttons;
-      font-size: 0.8em;
-    }
-  }
-}
-
-@media screen and (min-width: $desktop-breakpoint) {
-  section.row.links {
-    a {
-      &.flickr-link {
-        top: 6vh;
-      }
-      &.parralax-link {
-        top: 20vh;
-      }
-      button {
-        font-size: 0.9em;
-      }
-      p {
-        font-size: 1.7em;
-      }
     }
   }
 }
