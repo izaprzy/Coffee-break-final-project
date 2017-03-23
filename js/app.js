@@ -84,15 +84,18 @@ $(function () {
             form.on('submit', function (e) {
                 e.preventDefault();
                 var tag = input.val();
-
+                var counter = 0;
                 $('img').each(function() {
-                    // console.log($(this).data('tags'));
-                    if ( !tag ) {
+                    if ( $(this).hasClass('hidden') ) { // before searching I make visible all images
+                        $(this).removeClass('hidden');
+                    }
+                    if ( !tag ) { // if user didnt put any tag
                         input.val('no tag suggestion').addClass('warning');
-                    } else if ($(this).data('tags').indexOf(tag) > -1) {
-                        console.log($(this), 'udalo sie');
-                    } else {
-                        input.val('no results');
+                    } else if ( $(this).data('tags').indexOf(tag) < 0 ) {
+                        counter++;
+                        $(this).addClass('hidden');
+                        var number = 100 - counter;
+                        input.val('You have ' + number + ' results');
                     }
                 })
             });
