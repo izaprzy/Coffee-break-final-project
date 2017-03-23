@@ -27,7 +27,6 @@ body {
   margin: 0 auto;
   //background-color: #0000AA;
 
-
   .row {
     //we use this placeholder to clear the floats
     @extend %clearfix;
@@ -43,7 +42,10 @@ body {
       padding-left: $gutter;
       padding-right: $gutter;
     }
-
+    @media screen and (min-width: $tablet-breakpoint) {
+      @include grid(8);
+      margin-bottom: 10px;
+    }
     //We set col- width for bigger screans
     @media screen and (min-width: $desktop-breakpoint) {
       @include grid(12);

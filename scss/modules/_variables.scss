@@ -10,11 +10,12 @@ $colors: (
 );
 
 //space between columns
-$gutter: 30px;
+$gutter: 10px;
 
 
 //breakpoints for grid
-$desktop-breakpoint: 540px;
+$desktop-breakpoint: 1000px;
+$tablet-breakpoint: 700px;
 
 //placeholder that clears floats
 %clearfix {

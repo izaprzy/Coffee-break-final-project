@@ -22,28 +22,27 @@ section.parallax {
       top: 50%;
       text-align: center;
       text-transform: uppercase;
-      position: relative;
-      a {
-        text-decoration: none;
-        color: white;
-        &:hover {
-          background-color: white;
-          color: black;
-          font-weight: 700;
-        }
-        div.backToHome {
-          position: absolute;
-          font-size: 0.7rem;
-          display: inline-block;
-          border: 3px solid white;
-          bottom: -110px;
-          left: 44vw;
-          padding: 15px;
-          border-radius: 3px;
-          letter-spacing: 2px;
+      div.home {
+        text-align: center;
+        a {
+          text-decoration: none;
+          color: white;
+          div.backToHome {
+            font-size: 0.7rem;
+            display: inline-block;
+            border: 3px solid white;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 3px;
+            letter-spacing: 2px;
+            &:hover {
+              background-color: white;
+              color: black;
+              font-weight: 1000;
+            }
+          }
         }
       }
-
     }
     .parallax-layer-back {
       transform: translateZ(-1px) scale(2.04); //push the element backward (toward the user) - because is "-". to create the depth we use scale.

@@ -55,7 +55,7 @@ header {
       //float: right;
       position: absolute;
       top: 16px;
-      right: $gutter;
+      right: 3*$gutter;
       z-index: 3;
       div.menu-overlay-content {
         width: 30px;

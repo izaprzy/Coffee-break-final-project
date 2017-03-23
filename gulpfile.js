@@ -26,12 +26,11 @@ gulp.task('watch', function(){
     return gulp.watch('scss/**/*.scss', ['sass']),
         browserSync.init({                          // live web
             server: {
-                baseDir: "./"
+                baseDir: "./",
+                proxy: "./"
+
             }
-        }).
-    browserSync.init({
-        proxy: "./"
-    });
+        });
 });
 
 gulp.task('default', ['sass', 'watch']);  // rozpoczyna od sprawdzenia scssa i następnie włącza gulp watch
