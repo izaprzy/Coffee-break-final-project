@@ -55,6 +55,7 @@ $(function () {
         $.each(photos, function (index, photo) {
             // console.log(index, photo.tags);
             var url = photo.url_o;
+            console.log(url);
             var tags = photo.tags;
             console.log(tags);
             var $img = $('<img>').attr('src', url).data('tags', tags);
@@ -75,10 +76,10 @@ $(function () {
 
 
     $.ajax({
-        url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=b86b2855b5e59aeec6f42089adbefef1&group_id=564487%40N23&extras=tags%2C+machine_tags%2Curl_o&page=2&format=json&nojsoncallback=1&auth_token=72157678400961993-eb55fe7233c3c666&api_sig=bccee0b82f0f2db077241c493581d828"
+        url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=4017f3b81fd0bba809538fa065833c53&group_id=564487%40N23&extras=tags%2Curl_o&page=1&format=json&nojsoncallback=1&auth_token=72157681652852586-b65d1122c3384ec4&api_sig=d3591a03e56aba05060686bee70b1c46"
     }).done(function (response) {
         console.log(response);
-        // console.log(response.photos.photo);
+        console.log(response.photos.photo);
 
         insertPhotoWithQuote(response.photos.photo);
 
