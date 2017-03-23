@@ -4,7 +4,7 @@ section.flickr-api {
     position: fixed;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     top: 0;
     left: 0;
@@ -14,22 +14,19 @@ section.flickr-api {
     height: 80px;
     background-color: lighten(map_get($colors, dark), 15%);
     border-bottom: 1px solid darken(map_get($colors, light), 20%);
-    img {
-      display: inline-block;
-      margin: auto 20px;
-      float: left;
-      background-color: white;
-    }
     form {
       input[type='text'] {
         display: inline-block;
         border-radius: 6px;
-        width: 65vw;
-        height: 40px;
-        padding: 5px;
+        width: 45vw;
+        height: 35px;
+        padding: 20px;
         outline: none;
         border-style: solid;
         border-color: transparent;
+        &.warning {
+          color: forestgreen;
+        }
         &:focus {
           outline: none;
           border-style: solid;
@@ -50,19 +47,56 @@ section.flickr-api {
         &:active {
           outline: none;
           border-style: solid;
+
         }
       }
       button {
-      padding: 7px;
+        //padding: 7px;
         border-radius: 5px;
+        background-color: lighten(map_get($colors, dark), 15%);
+        border: none;
       }
     }
 
     i.fa-heart-o {
       margin: 0 20px 0 8px;
       color: #00AA00;
-
     }
+    i.fa-search {
+      color: white;
+      &.warning {
+        color: forestgreen;
+      }
+      &:focus {
+        outline: none;
+        border-style: none;
+      }
+      &:link {
+        outline: none;
+        border-style: none;
+      }
+      &:visited {
+        outline: none;
+        border-style: none;
+      }
+      &:hover {
+        //outline: none;
+        border-style: none;
+        //border-color: red;
+      }
+      &:active {
+        outline: none;
+        border-style: none;
+
+      }
+    }
+    a {
+      padding: 5px;
+      i.fa.fa-times {
+        color: white;
+      }
+    }
+
   }
   section.photos.container {
     margin-top: 110px;
@@ -73,6 +107,9 @@ section.flickr-api {
     height: auto;
     background-size: contain;
     background-position: center center;
+    &.hidden {
+      display: none;
+    }
     img {
       border-radius: 20px;
       &:hover {

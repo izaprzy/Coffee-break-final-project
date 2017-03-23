@@ -37,13 +37,16 @@ $(function () {
 
     navigationMenuAnimate();
 
+
+
+
     //flickr-Api
 
+    var closeButton = $('i.fa.fa-times');
     var div = $('section.photo');
-    //the url below was generates by flickr api
-    var urlPage1 = "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=f7b675897915d732843be51dc236ab7c&group_id=564487%40N23&page=1&format=json&nojsoncallback=1&auth_token=72157679998988820-d935810cdcdc0511&api_sig=2bb41404b537f6b1735dab88209839f8";
-
     var form = $('form.search');
+    var input = $('form.search').find('input');
+    // console.log(form);
 
     function insertPhotoWithQuote(photos) {
 
@@ -51,41 +54,63 @@ $(function () {
         var columnMiddle = $('.middle');
         var columnRight = $('.right');
 
-
         $.each(photos, function (index, photo) {
             // console.log(index, photo.tags);
             var url = photo.url_o;
-            console.log(url);
+            // console.log(url);
             var tags = photo.tags;
-            console.log(tags);
+            // console.log(tags);
             var $img = $('<img>').attr('src', url).data('tags', tags);
-            console.log($img.data('tags')); // prints tags
+            // console.log($img.data('tags')); // prints tags
             var $addPhoto = $('<div>', {'class': 'bottomSpace'}).append($img);
 
             if (index < 34) {
                 // console.log(url);
                 columnLeft.append($addPhoto);
-            } else if ( index < 68) {
+            } else if (index < 68) {
                 columnMiddle.append($addPhoto);
             } else {
                 columnRight.append($addPhoto);
             }
         });
+
+        function findPhotoWithTag() {
+
+
+            input.on('focus',function () {
+                $(this).val('');
+            });
+
+            form.on('submit', function (e) {
+                e.preventDefault();
+                var tag = input.val();
+
+                $('img').each(function() {
+                    // console.log($(this).data('tags'));
+                    if ( !tag ) {
+                        input.val('no tag suggestion').addClass('warning');
+                    } else if ($(this).data('tags').indexOf(tag) > -1) {
+                        console.log($(this), 'udalo sie');
+                    } else {
+                        input.val('no results');
+                    }
+                })
+            });
+        }
+
+        findPhotoWithTag();
+
     }
-
-
 
     $.ajax({
         url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=4017f3b81fd0bba809538fa065833c53&group_id=564487%40N23&extras=tags%2Curl_o&page=1&format=json&nojsoncallback=1&auth_token=72157681652852586-b65d1122c3384ec4&api_sig=d3591a03e56aba05060686bee70b1c46"
     }).done(function (response) {
         console.log(response);
-        console.log(response.photos.photo);
+        // console.log(response.photos.photo);
 
         insertPhotoWithQuote(response.photos.photo);
 
     }).fail(function (error) {
         console.log(error);
     });
-
-
 });
