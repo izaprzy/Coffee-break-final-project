@@ -60,9 +60,14 @@ $(function () {
             // console.log(url);
             var tags = photo.tags;
             // console.log(tags);
-            var $img = $('<img>').attr('src', url).data('tags', tags);
+            var $img = $('<img>').attr('src', url).data('tags', tags).css('position', 'relative');
             // console.log($img.data('tags')); // prints tags
             var $addPhoto = $('<div>', {'class': 'bottomSpace'}).append($img);
+
+            var heart = $('<i>', { 'class':'fa fa-heart fa-2x'}, { 'aria-hidden':'true' }); // heart font
+            var favouriteHeart = $('<button>', { 'class': 'favouriteHeart'}).append(heart).css('position', 'absolute'); // heart font onside submit button
+
+            $addPhoto.append(favouriteHeart);
 
             if (index < 34) {
                 // console.log(url);

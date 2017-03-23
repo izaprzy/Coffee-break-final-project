@@ -15,7 +15,7 @@ section.flickr-api {
     background-color: lighten(map_get($colors, dark), 15%);
     border-bottom: 1px solid darken(map_get($colors, light), 20%);
     form {
-      input[type='text'] {
+      input[type='text'].search-input {
         display: inline-block;
         border-radius: 6px;
         width: 45vw;
@@ -40,7 +40,7 @@ section.flickr-api {
           border-style: solid;
         }
         &:hover {
-          //outline: none;
+          outline: none;
           border-style: solid;
           //border-color: red;
         }
@@ -57,7 +57,32 @@ section.flickr-api {
         border: none;
       }
     }
-
+    button.favourites {
+      background-color: transparent;
+      &.warning {
+        color: forestgreen;
+      }
+      &:focus {
+        //outline: none;
+        border-style: none;
+      }
+      &:link {
+        outline: none;
+        border-style: none;
+      }
+      &:visited {
+        outline: none;
+        border-style: none;
+      }
+      &:hover {
+        outline: none;
+        border-style: none;
+      }
+      &:active {
+        outline: none;
+        border-style: none;
+      }
+    }
     i.fa-heart-o {
       margin: 0 20px 0 8px;
       color: #00AA00;
@@ -80,14 +105,13 @@ section.flickr-api {
         border-style: none;
       }
       &:hover {
-        //outline: none;
+        outline: none;
         border-style: none;
         //border-color: red;
       }
       &:active {
         outline: none;
         border-style: none;
-
       }
     }
     a {
@@ -114,7 +138,13 @@ section.flickr-api {
       border-radius: 20px;
       &:hover {
         opacity: 0.8;
+
       }
+    }
+    button.favouriteHeart {
+      opacity: 0;
+      top: 20px;
+      bottom: 20px;
     }
   }
 }
