@@ -61,12 +61,12 @@ $(function () {
             // console.log(url);
             var tags = photo.tags;
             // console.log(tags);
-            var $img = $('<img>').attr('src', url).data('tags', tags).css('position', 'relative');
+            var $img = $('<img>').attr('src', url).data('tags', tags);
             // console.log($img.data('tags')); // prints tags
             var $addPhoto = $('<div>', {'class': 'bottomSpace'}).append($img);
 
-            var heart = $('<i>', { 'class':'fa fa-heart fa-2x'}, { 'aria-hidden':'true' }); // heart font
-            var favouriteHeart = $('<button>', { 'class': 'favouriteHeart'}).append(heart).css('position', 'absolute'); // heart font onside submit button
+            var favouriteHeart = $('<i>', { 'class':'fa fa-heart fa-2x favouriteHeart'}, { 'aria-hidden':'true' }).css('position', 'absolute'); // heart font
+            // var favouriteHeart = $('<button>', { 'class': 'favouriteHeart'}).append(heart).css('position', 'absolute'); // heart font onside submit button
 
             $addPhoto.append(favouriteHeart);
 
@@ -78,8 +78,43 @@ $(function () {
             } else {
                 columnRight.append($addPhoto);
             }
+
         });
 
+        function saveFavourites() {
+            var fav;
+            if ( !localStorage.getItem('favs') ){
+                var favs = [];
+            } else {
+                var favs = JSON.parse( localStorage.getItem('favs') );
+            }
+            $('div.bottomSpace').on('click', 'i.favouriteHeart', function () {
+                console.log($(this).prev().attr('src'));
+                fav = $(this).prev().attr('src');
+                favs.push(fav);
+                localStorage.setItem("favs", JSON.stringify(favs));
+                var test = JSON.stringify(favs);
+                console.log(test);
+            });
+
+
+        }
+
+
+//         //Pobierać:
+//         if ( !localStorage.get('favs') ){
+//             var favs = [];
+//         } else {
+//             var favs = JSON.parse( localStorage.get('favs') );
+//         }
+// //Zapisywać:
+//         favs to są ulubione
+//         localStorage.set( 'favs', JSON.stringify( favs ) );
+
+
+
+
+        saveFavourites();
         function findPhotoWithTag() {
 
 
@@ -113,6 +148,10 @@ $(function () {
         console.log(test2); //Logs "{"test":"thing","test2":"thing2","test3":[0,2,44]}"
 
         findPhotoWithTag();
+
+
+
+
 
     }
 

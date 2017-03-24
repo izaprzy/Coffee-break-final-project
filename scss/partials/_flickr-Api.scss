@@ -137,8 +137,17 @@ section.flickr-api {
     height: auto;
     background-size: contain;
     background-position: center center;
+    position: relative;
+    i.favouriteHeart {
+      color: lightslategray;
+      opacity: 0.7;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
     &.hidden {
       display: none;
+
     }
     img {
       border-radius: 20px;
@@ -146,11 +155,6 @@ section.flickr-api {
         opacity: 0.8;
 
       }
-    }
-    button.favouriteHeart {
-      opacity: 0;
-      top: 20px;
-      bottom: 20px;
     }
   }
 }
