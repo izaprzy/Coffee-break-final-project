@@ -70,10 +70,10 @@ $(function () {
 
             $addPhoto.append(favouriteHeart);
 
-            if (index < 80) {
+            if (index < 170) {
                 // console.log(url);
                 columnLeft.append($addPhoto);
-            } else if (index < 175) {
+            } else if (index < 340) {
                 columnMiddle.append($addPhoto);
             } else {
                 columnRight.append($addPhoto);
@@ -126,16 +126,16 @@ $(function () {
                 e.preventDefault();
                 var tag = input.val();
                 var counter = 0;
-                $('img').each(function() {
+                $('img').parent().each(function() {
                     if ( $(this).hasClass('hidden') ) { // before searching I make visible all images
                         $(this).removeClass('hidden');
                     }
                     if ( !tag ) { // if user didnt put any tag
                         resultsNumber.text('no tag suggestion').addClass('warning');
-                    } else if ( $(this).data('tags').indexOf(tag) < 0 ) {
+                    } else if ( $(this).children().data('tags').indexOf(tag) < 0 ) {
                         counter++;
                         $(this).addClass('hidden');
-                        var number = 250 - counter;
+                        var number = 500 - counter;
                         resultsNumber.text('You have ' + number + ' results');
                     }
                 })
@@ -156,7 +156,7 @@ $(function () {
     }
 
     $.ajax({
-        url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=3a8ae2ce4481865b5e7de17a2fbce311&group_id=564487%40N23&extras=tags%2Curl_o&per_page=250&page=1&format=json&nojsoncallback=1"
+        url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=3a8ae2ce4481865b5e7de17a2fbce311&group_id=564487%40N23&extras=tags%2Curl_o&per_page=500&page=1&format=json&nojsoncallback=1"
     }).done(function (response) {
         console.log(response);
         // console.log(response.photos.photo);
