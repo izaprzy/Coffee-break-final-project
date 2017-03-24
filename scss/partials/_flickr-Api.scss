@@ -59,6 +59,29 @@ section.flickr-api {
     }
     button.favourites {
       background-color: transparent;
+      outline: none;
+      border-style: none;
+      &:focus {
+        outline: none;
+        border-style: none;
+      }
+      &:link {
+        outline: none;
+        border-style: none;
+      }
+      &:visited {
+        outline: none;
+        border-style: none;
+      }
+      &:hover {
+        outline: none;
+        border-style: none;
+        //border-color: red;
+      }
+      &:active {
+        outline: none;
+        border-style: none;
+      }
       &.warning {
         color: forestgreen;
       }
@@ -92,27 +115,6 @@ section.flickr-api {
       &.warning {
         color: forestgreen;
       }
-      &:focus {
-        outline: none;
-        border-style: none;
-      }
-      &:link {
-        outline: none;
-        border-style: none;
-      }
-      &:visited {
-        outline: none;
-        border-style: none;
-      }
-      &:hover {
-        outline: none;
-        border-style: none;
-        //border-color: red;
-      }
-      &:active {
-        outline: none;
-        border-style: none;
-      }
     }
     a {
       padding: 5px;
@@ -123,7 +125,11 @@ section.flickr-api {
 
   }
   section.photos.container {
-    margin-top: 110px;
+    margin-top: 100px;
+    text-align: center;
+  }
+  span.resultsNumber {
+    padding-bottom: 30px;
   }
   .bottomSpace {
     margin-bottom: $gutter;

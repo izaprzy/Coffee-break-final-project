@@ -45,8 +45,9 @@ $(function () {
     var closeButton = $('i.fa.fa-times');
     var div = $('section.photo');
     var form = $('form.search');
-    var input = $('form.search').find('input');
-    // console.log(form);
+    var input = form.find('input');
+    var resultsNumber = $('span.resultsNumber');
+    // console.log(resultsNumber);
 
     function insertPhotoWithQuote(photos) {
 
@@ -69,10 +70,10 @@ $(function () {
 
             $addPhoto.append(favouriteHeart);
 
-            if (index < 34) {
+            if (index < 80) {
                 // console.log(url);
                 columnLeft.append($addPhoto);
-            } else if (index < 68) {
+            } else if (index < 175) {
                 columnMiddle.append($addPhoto);
             } else {
                 columnRight.append($addPhoto);
@@ -95,23 +96,28 @@ $(function () {
                         $(this).removeClass('hidden');
                     }
                     if ( !tag ) { // if user didnt put any tag
-                        input.val('no tag suggestion').addClass('warning');
+                        resultsNumber.text('no tag suggestion').addClass('warning');
                     } else if ( $(this).data('tags').indexOf(tag) < 0 ) {
                         counter++;
                         $(this).addClass('hidden');
-                        var number = 100 - counter;
-                        input.val('You have ' + number + ' results');
+                        var number = 250 - counter;
+                        resultsNumber.text('You have ' + number + ' results');
                     }
                 })
             });
         }
+
+        var test = { test: "thing", test2: "thing2", test3: [0, 2, 44] };
+        localStorage.setItem("test", JSON.stringify(test));
+        var test2 = localStorage.getItem("test");
+        console.log(test2); //Logs "{"test":"thing","test2":"thing2","test3":[0,2,44]}"
 
         findPhotoWithTag();
 
     }
 
     $.ajax({
-        url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=4017f3b81fd0bba809538fa065833c53&group_id=564487%40N23&extras=tags%2Curl_o&page=1&format=json&nojsoncallback=1&auth_token=72157681652852586-b65d1122c3384ec4&api_sig=d3591a03e56aba05060686bee70b1c46"
+        url: "https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=3a8ae2ce4481865b5e7de17a2fbce311&group_id=564487%40N23&extras=tags%2Curl_o&per_page=250&page=1&format=json&nojsoncallback=1"
     }).done(function (response) {
         console.log(response);
         // console.log(response.photos.photo);
