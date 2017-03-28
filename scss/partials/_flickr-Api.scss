@@ -1,3 +1,30 @@
+//#preloader {
+//  position:fixed;
+//  top:0;
+//  left:0;
+//  right:0;
+//  bottom:0;
+//  background: rgb(255,255,255);
+//  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0NCUiIHN0b3AtY29sb3I9IiNjOWM5YzkiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNzU3NTc1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+//  background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(201,201,201,1) 44%, rgba(117,117,117,1) 100%);
+//  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(44%,rgba(201,201,201,1)), color-stop(100%,rgba(117,117,117,1)));
+//  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(201,201,201,1) 44%,rgba(117,117,117,1) 100%);
+//  background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(201,201,201,1) 44%,rgba(117,117,117,1) 100%);
+//  background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(201,201,201,1) 44%,rgba(117,117,117,1) 100%);
+//  background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(201,201,201,1) 44%,rgba(117,117,117,1) 100%);
+//  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#757575',GradientType=1 );
+//  //z-index:999; /* makes sure it stays on top */
+//  #status {
+//    width:128px;
+//    height:128px;
+//    position:absolute;
+//    left:50%; /* wyśrodkowujemy w poziomie */
+//    top:50%; /* wyśrodkowujemy w pionie */
+//    background-image: url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
+//    margin:-64px 0 0 -64px; /* no bo chcemy idealnie wycentrować, nie? */
+//  }
+//}
+
 section.flickr-api {
   position: relative;
   section.nav-bar {
@@ -12,8 +39,8 @@ section.flickr-api {
     z-index: 9999;
     width: 100%;
     height: 80px;
-    background-color: lighten(map_get($colors, dark), 15%);
-    border-bottom: 1px solid darken(map_get($colors, light), 20%);
+    background-color: lighten(map_get($colors, grey), 20%);
+    border-bottom: 1px solid map_get($colors, grey);
     form {
       input[type='text'].search-input {
         display: inline-block;
@@ -24,9 +51,6 @@ section.flickr-api {
         outline: none;
         border-style: solid;
         border-color: transparent;
-        &.warning {
-          color: forestgreen;
-        }
         &:focus {
           outline: none;
           border-style: solid;
@@ -42,7 +66,6 @@ section.flickr-api {
         &:hover {
           outline: none;
           border-style: solid;
-          //border-color: red;
         }
         &:active {
           outline: none;
@@ -53,14 +76,24 @@ section.flickr-api {
       button {
         //padding: 7px;
         border-radius: 5px;
-        background-color: lighten(map_get($colors, dark), 15%);
+        background-color: transparent;
         border: none;
+        &:focus {
+          outline: none;
+          border-style: none;
+        }
       }
     }
-    button.favourites {
+    i.fa-star-o {
       background-color: transparent;
       outline: none;
       border-style: none;
+      margin: 0 20px 0 8px;
+      color: #2f2f2f;
+      cursor: pointer;
+      &.saved {
+        color: yellow;
+      }
       &:focus {
         outline: none;
         border-style: none;
@@ -81,9 +114,6 @@ section.flickr-api {
       &:active {
         outline: none;
         border-style: none;
-      }
-      &.warning {
-        color: forestgreen;
       }
       &:focus {
         //outline: none;
@@ -106,20 +136,35 @@ section.flickr-api {
         border-style: none;
       }
     }
-    i.fa-heart-o {
-      margin: 0 20px 0 8px;
-      color: #00AA00;
-    }
     i.fa-search {
-      color: white;
-      &.warning {
-        color: forestgreen;
-      }
+      color: #2f2f2f;
     }
-    a {
-      padding: 5px;
-      i.fa.fa-times {
-        color: white;
+    div.close-flickr {
+      a.close-flickr {
+        display: inline-block;
+        div.close-flickr-button {
+          width: 30px;
+          height: 15px;
+
+          p.close-line.one.transform-line1 {
+            top: 0;
+            -webkit-transform: translateY(8px) rotate(45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+            -ms-transform: translateY(8px) rotate(45deg); /* IE 9 */
+            transform: translateY(8px) rotate(45deg);
+          }
+          p.close-line.three.transform-line3 {
+            top: 12px;
+            -webkit-transform: translateY(-8px) rotate(-45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+            -ms-transform: translateY(-8px) rotate(-45deg); /* IE 9 */
+            transform: translateY(-8px) rotate(-45deg);
+          }
+          p.close-line {
+            height: 4px;
+            background-color: map_get($colors, dark);
+            position: relative;
+            transition: 0.5s;
+          }
+        }
       }
     }
 
@@ -132,29 +177,40 @@ section.flickr-api {
     padding-bottom: 30px;
   }
   .bottomSpace {
+    &:hover {
+      opacity: 0.9;
+      i.favouriteStar {
+        opacity: 1;
+      }
+    }
     margin-bottom: $gutter;
     width: 100%;
     height: auto;
     background-size: contain;
     background-position: center center;
     position: relative;
-    i.favouriteHeart {
-      color: lightslategray;
+    i.favouriteStar {
+      color: white;
       opacity: 0.7;
       bottom: 20px;
       right: 20px;
       cursor: pointer;
+      &.saved {
+        color: yellow;
+      }
     }
+    .rotate-scale-up {
+      -webkit-animation: rotate-scale-up 0.65s linear both;
+      -moz-animation: rotate-scale-up 0.65s linear both;
+      animation: rotate-scale-up 0.65s linear both;
+      @-webkit-keyframes rotate-scale-up{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(2) rotateZ(180deg);transform:scale(2) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}}@keyframes rotate-scale-up{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(2) rotateZ(180deg);transform:scale(2) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}}
+    }
+
     &.hidden {
       display: none;
-
     }
     img {
       border-radius: 20px;
-      &:hover {
-        opacity: 0.8;
-
-      }
     }
   }
 }
@@ -164,7 +220,6 @@ section.flickr-api {
   max-width: 1280px;
   margin: 0 auto;
   //background-color: #0000AA;
-
 
   .row {
     //we use this placeholder to clear the floats
@@ -194,3 +249,4 @@ section.flickr-api {
     }
   }
 }
+
