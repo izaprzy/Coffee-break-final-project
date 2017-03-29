@@ -1,25 +1,20 @@
-
 .transform-line1 {
   //transform: translateY(8px) rotate(45deg);
   -webkit-transform: translateY(8px) rotate(45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
   -ms-transform: translateY(8px) rotate(45deg); /* IE 9 */
   transform:  translateY(8px) rotate(45deg);
 }
-
 .transform-line3 {
   -webkit-transform: translateY(-8px)  rotate(-45deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
   -ms-transform: translateY(-8px)  rotate(-45deg); /* IE 9 */
   transform: translateY(-8px)  rotate(-45deg);
 }
-
 .navigationOpen {
   -webkit-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   -moz-animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   animation: scale-in-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   @-webkit-keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}@keyframes scale-in-tr{0%{-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}
 }
-
-
 .navigationClose {
   -webkit-animation: slide-out-bck-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   -moz-animation: slide-out-bck-tr 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
@@ -38,17 +33,13 @@ section#main-background {
   background-image: url("../img/watermelon.jpeg");
   background-size: cover;
   background-position: center center;
-  opacity: 0.95;
+  opacity: 0.8;
   background-repeat: no-repeat;
 
 }
-
-
 // header with logo and menu-overlay
 header {
   margin: 1rem 0;
-  img.logo {
-  }
   div.menu-overlay {
     a.menu-overlay {
       display: inline-block;
@@ -83,7 +74,6 @@ header {
       }
     }
   }
-
   nav.navigation {
     position: fixed;
     top: 0;
@@ -95,15 +85,18 @@ header {
     ul {
       text-align: center;
       li {
+        cursor: pointer;
         color: map_get($colors, light);
         font-size: 2em;
         margin: 6vh;
+        &:hover {
+          font-size: 2.05em;
+        }
       }
     }
   }
 }
-
-// links to flickr and parallax
+// links to gallery and parallax
 section.row.links {
   position: relative;
   a {
@@ -120,6 +113,9 @@ section.row.links {
         background-color: map_get($colors, primary);
         color: whitesmoke;
         font-weight: 200;
+        &:focus {
+          outline: none;
+        }
       }
       p {
         color: map_get($colors, primary);
@@ -144,7 +140,6 @@ section.row.links {
     }
   }
 }
-
 @media screen and (min-width: $desktop-breakpoint) {
   section.row.links {
     a {

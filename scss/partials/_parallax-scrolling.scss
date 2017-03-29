@@ -18,7 +18,7 @@ section.parallax {
     .parallax-layer-base { // we determine the scrolling speed of a parallax element by translating it along the Z axis (moving it farther away, or closer to the viewport)
       transform: translateZ(0);
       font-size: 2rem;
-      color: white;
+      color: #fff;
       top: 50%;
       text-align: center;
       text-transform: uppercase;
@@ -26,19 +26,19 @@ section.parallax {
         text-align: center;
         a {
           text-decoration: none;
-          color: white;
+          color: #fff;
           div.backToHome {
             font-size: 0.7rem;
             display: inline-block;
-            border: 3px solid white;
+            border: 3px solid #fff;
             padding: 15px;
             margin-top: 30px;
             border-radius: 3px;
             letter-spacing: 2px;
             &:hover {
-              background-color: white;
+              background-color: #fff;
               color: black;
-              font-weight: 1000;
+              font-weight: 900;
             }
           }
         }
@@ -47,34 +47,34 @@ section.parallax {
     .parallax-layer-back {
       transform: translateZ(-1px) scale(2.04); //push the element backward (toward the user) - because is "-". to create the depth we use scale.
       &.photo1 {
-        @include photoBase(url("../../img/feel wind in your hair.jpg"));
+        @include photoBase(url("../../img/wind.jpg"));
       }
       &.photo2 {
-        @include photoBase(url("../../img/go for a ride.jpg"));
+        @include photoBase(url("../../img/ride.jpg"));
       }
       &.photo3 {
-        @include photoBase(url("../../img/take a pictures.jpg"));
+        @include photoBase(url("../../img/pictures.jpg"));
       }
       &.photo4 {
         @include photoBase(url("../../img/appreciate_those_you_love.jpg"));
       }
       &.photo5 {
-        @include photoBase(url("../../img/do joga.jpeg"));
+        @include photoBase(url("../../img/joga.jpeg"));
       }
       &.photo6 {
-        @include photoBase(url("../../img/discover nature.jpg"));
+        @include photoBase(url("../../img/nature.jpg"));
       }
       &.photo7 {
-        @include photoBase(url("../../img/look for life from differente perspective.jpeg"));
+        @include photoBase(url("../../img/perspective.jpeg"));
       }
       &.photo8 {
-        @include photoBase(url("../../img/create art1.jpg"));
+        @include photoBase(url("../../img/art1.jpg"));
       }
       &.photo9 {
-        @include photoBase(url("../../img/bird singing.jpeg"));
+        @include photoBase(url("../../img/bird.jpeg"));
       }
       &.photo10 {
-        @include photoBase(url("../../img/remeber that we are a part of something much bigger.jpg"));
+        @include photoBase(url("../../img/universe.jpg"));
       }
     }
   }
