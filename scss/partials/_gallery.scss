@@ -4,7 +4,7 @@
   left:0;
   right:0;
   bottom:0;
-  background: #333333;
+  background: #fff;
   z-index:999; /* makes sure it stays on top */
   #status {
     width:128px;
@@ -12,12 +12,13 @@
     position:absolute;
     left:50%;
     top:50%;
-    background-image: url('http://files.mimoymima.com/images/loading.gif');
+    background-image: url('../../img/Preloader_3-kopia.gif');
     background-repeat: no-repeat;
     background-position: center;
     margin:-64px 0 0 -64px; /* to center preloader */
   }
 }
+
 section.flickr-api {
   position: relative;
   section.nav-bar {
@@ -122,6 +123,8 @@ section.flickr-api {
     background-size: contain;
     background-position: center center;
     position: relative;
+    padding-left: -15px;
+    padding-right: -15px;
     i.favouriteStar {
       color: #fff;
       opacity: 0.7;
@@ -143,7 +146,7 @@ section.flickr-api {
       display: none;
     }
     img {
-      border-radius: 20px;
+      //border-radius: 20px;
     }
   }
 }
@@ -181,4 +184,3 @@ section.flickr-api {
     }
   }
 }
-

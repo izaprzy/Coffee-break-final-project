@@ -8,7 +8,7 @@ $(function () {
     var $bottomLineHamburger =$('p.menu-overlay-line.three');
 
     var $nav = $('nav.navigation');
-    
+
     function navigationMenuAnimate() {
         $hamburger.on('click', function () {
             $middleLineHamburger.toggleClass('hidden');

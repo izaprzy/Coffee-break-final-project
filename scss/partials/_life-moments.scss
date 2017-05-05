@@ -1,0 +1,67 @@
+.background-image {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  &:nth-of-type(1) {
+    @include photoBase(url("../../img/art1.jpg"));
+  }
+  &:nth-of-type(2) {
+    @include photoBase(url("../../img/bird.jpeg"));
+  }
+  &:nth-of-type(3) {
+    @include photoBase(url("../../img/nature.jpg"));
+  }
+  &:nth-of-type(4) {
+    @include photoBase(url("../../img/perspective.jpeg"));
+  }
+  &:nth-of-type(5) {
+    @include photoBase(url("../../img/wind.jpg"));
+  }
+  &:nth-of-type(6) {
+    @include photoBase(url("../../img/ride.jpg"));
+  }
+  &:nth-of-type(7) {
+    @include photoBase(url("../../img/pictures.jpg"));
+  }
+  &:nth-of-type(8) {
+    @include photoBase(url("../../img/appreciate_those_you_love.jpg"));
+  }
+  &:nth-of-type(9) {
+    @include photoBase(url("../../img/joga.jpeg"));
+  }
+  &:nth-of-type(10) {
+    @include photoBase(url("../../img/universe.jpg"));
+  }
+  .picture-description {
+    font-size: 2em;
+    color: #fff;
+    .home {
+      .backToHome {
+        font-size: 0.4em;
+        display: inline-block;
+        border: 3px solid #fff;
+        padding: 15px;
+        margin-top: 30px;
+        border-radius: 3px;
+        letter-spacing: 2px;
+        &:hover {
+          background-color: #fff;
+          color: black;
+          font-weight: 900;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}

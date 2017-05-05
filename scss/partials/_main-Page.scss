@@ -96,7 +96,7 @@ header {
     }
   }
 }
-// links to gallery and parallax
+// links to gallery and life-moments
 section.row.links {
   position: relative;
   a {
@@ -121,11 +121,11 @@ section.row.links {
         color: map_get($colors, primary);
       }
     }
-    &.flickr-link {
+    &.gallery-link {
       top: 7vh;
       right: 21px;
     }
-    &.parallax-link {
+    &.life-moments-link {
       top: 18vh;
       right: 102px;
     }
@@ -143,10 +143,10 @@ section.row.links {
 @media screen and (min-width: $desktop-breakpoint) {
   section.row.links {
     a {
-      &.flickr-link {
+      &.gallery-link {
         top: 6vh;
       }
-      &.parallax-link {
+      &.life-moments-link {
         top: 20vh;
       }
       button {
