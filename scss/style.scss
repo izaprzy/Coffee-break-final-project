@@ -1,5 +1,5 @@
 @import "modules/reset";
-@import "modules/_variables";
+@import "modules/variables";
 @import "modules/mixins";
 
 @import "partials/main-Page";
@@ -17,8 +17,6 @@ body {
   display: none;
 }
 
-
-
 //creating grid with 12 columns
 // main container
 .container {
@@ -30,10 +28,6 @@ body {
   .row {
     //we use this placeholder to clear the floats
     @extend %clearfix;
-
-    ////we set margin -$gutter to clear space at the begging and the end of the row
-    //margin-right: -$gutter;
-    //margin-left: -$gutter;
 
     //We find all col-* class'es and set them width 100% - Mobile first!
     [class*='col-'] {
